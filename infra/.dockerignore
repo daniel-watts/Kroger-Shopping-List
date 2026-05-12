@@ -1,0 +1,16 @@
+**/node_modules
+**/.next
+**/dist
+**/build
+**/coverage
+**/.turbo
+.git
+.env
+.env.local
+*.log
+.DS_Store
+.vscode
+.idea
+ksa.sublime-workspace
+postgres-data
+redis-data

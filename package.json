@@ -1,0 +1,35 @@
+{
+  "name": "kroger",
+  "private": true,
+  "version": "0.0.0",
+  "packageManager": "pnpm@10.33.2",
+  "scripts": {
+    "dev": "pnpm --filter @kroger/web dev",
+    "build": "pnpm -r build",
+    "db:generate": "pnpm --filter @kroger/db prisma:generate",
+    "db:migrate": "pnpm --filter @kroger/db prisma:migrate:dev",
+    "db:migrate:deploy": "pnpm --filter @kroger/db prisma:migrate:deploy",
+    "db:studio": "pnpm --filter @kroger/db prisma:studio",
+    "stack:up": "docker compose --env-file .env -f infra/docker-compose.yml up -d",
+    "stack:build": "docker compose --env-file .env -f infra/docker-compose.yml up -d --build",
+    "stack:down": "docker compose --env-file .env -f infra/docker-compose.yml down",
+    "stack:logs": "docker compose --env-file .env -f infra/docker-compose.yml logs -f"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@node-rs/argon2",
+      "@prisma/client",
+      "@prisma/engines",
+      "@tailwindcss/oxide",
+      "esbuild",
+      "prisma",
+      "sharp"
+    ]
+  }
+}
